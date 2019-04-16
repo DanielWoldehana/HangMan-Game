@@ -4,7 +4,7 @@ body{
 
 /******************************CLASS TAGS*******************************/
 
-.hang-letters {
+/* .my-letters {
     font-size: 40px;
     margin: 20px;
 }
@@ -15,7 +15,7 @@ body{
     margin: 10px;
     border-bottom: 10px solid black;
     text-align: center;
-}
+} */
 
 
 .container {
@@ -31,3 +31,8 @@ body{
     border: 2px solid black;
     padding: 0 10px;
 }
+
+.poof {
+    visibility: hidden;
+}
+
