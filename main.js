@@ -60,7 +60,7 @@ let myhanger = document.querySelector(".hangman-img")
 
 function findLetter(evt){
     evt.preventDefault()
-        if(evt.target !== evt.cuurentTarget) {
+        if(evt.target.className == "letter") {
             evt.target.classList.add("poof")
             console.log(evt.target.id)
             for(let i = 0; i < randomWord.length; i++){
