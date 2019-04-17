@@ -92,22 +92,19 @@ let canvas = document.querySelector("canvas");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let c = canvas.getContext('2d');
-c.fillStyle = "blue";
 
-function Circle(x, y, dx, dy, radius, r, g, b, o){
+function Circle(x, y, dx, dy, radius){
     this.x = x
     this.y = y
     this.dx = dx
     this.dy = dy
     this.radius = Math.floor(Math.random() * 30)
-   this.r = Math.floor(Math.random() * 255)
-   this.g = Math.floor(Math.random() * 255)
-   this.b = Math.floor(Math.random() * 255)
-   this.o = Math.random() * 1
+   
+   this.o = Math.random() * 2
     this.draw = function(){
        c.beginPath();
        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-       c.strokeStyle = `rgb(${this.r},${this.g},${this.b}, ${o})`;
+       console.log(this.r)
        c.stroke();
     }
     this.update = function(){
@@ -127,16 +124,25 @@ function Circle(x, y, dx, dy, radius, r, g, b, o){
    }
    
    let circlesArray = [];
-   for(let i = 0; i < 100; i++){
+   let i = 0
+   while(i < 125){
        let radius = 30
+       let myr = Math.floor(Math.random() * 255)
+       let myg = Math.floor(Math.random() * 255)
+       let myb = Math.floor(Math.random() * 255)
+       let o = Math.random() * 1
        let x = Math.random() * (innerWidth - radius * 2) + radius
        let y = Math.random() * (innerHeight - radius * 2) + radius
        let dx = (Math.random() - 0.5) * 3
        let dy = (Math.random() - 0.5) * 3
+    //    c.strokeStyle = `rgb(${myr}, ${myg}, ${myb}, ${o})`;
+        c.strokeStyle = `rgb( 255, 255, 255)`;
        circlesArray.push(new Circle(x, y, dx, dy, radius))
-
+       i++
    }
 
+    
+  
 
 function animate() {
    requestAnimationFrame(animate)
