@@ -39,7 +39,7 @@ canvas {
 
 .buttonDiv {
    position: relative;
-    height: 100px;
+    height: 50px;
 }
 
 .myButton {
@@ -56,6 +56,7 @@ canvas {
 
 .hangman-img {
     position: relative;
+
 }
 
 .hanger {
@@ -63,7 +64,6 @@ canvas {
     width: 300px;
     position: relative;
     right: 12%;
-
 }
 
 .kaguya1, .kaguya {
@@ -72,6 +72,13 @@ canvas {
     height: 300px;
     left: 35%;
     top: 25%;
+}
+.kaguya5 {
+    position: absolute;
+    width: 700px;
+    height: 300px;
+    left: 5%;
+    top: 15%;
 }
 
 #category-select {

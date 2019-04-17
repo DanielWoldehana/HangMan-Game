@@ -42,6 +42,8 @@ for(let i = 0; i < randomWord.length; i++){
 let myKeyBoard = document.querySelector(".container")
 myKeyBoard.addEventListener("click", findLetter)
 let score = 0 
+let myhanger = document.querySelector(".hangman-img")
+
 
 function findLetter(evt){
     evt.preventDefault()
@@ -72,15 +74,29 @@ function findLetter(evt){
         
         console.log('wrong')
         lifes -= 1
+        img += 1
         console.log(lifes)
         life.innerHTML = `❤️: ${lifes}`
+        if(img !== 5){
+        let hangImg = document.createElement("img")
+        hangImg.setAttribute("src", `/images/Kaguya${img}.png`)
+        console.log(img + " image #")
+        hangImg.setAttribute("class", "kaguya1 kaguya")
+        myhanger.appendChild(hangImg)
+        } else {
+            let hangImg = document.createElement("img")
+            hangImg.setAttribute("src", `/images/Kaguya${img}.png`)
+            hangImg.setAttribute("class", "kaguya5")
+            myhanger.appendChild(hangImg)
+            console.log("true")
+        }
     }
 } 
  
  let life = document.querySelector(".life-span")
 let lifes = 6
 life.innerHTML = `❤️: 6`
-
+let img = 0
 
 
 
@@ -100,7 +116,6 @@ function Circle(x, y, dx, dy, radius){
     this.draw = function(){
        c.beginPath();
        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-       console.log(this.r)
        c.stroke();
     }
     this.update = function(){
