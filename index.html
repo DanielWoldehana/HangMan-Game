@@ -9,9 +9,18 @@
 </head>
 <body>
     <h1> HANGMAN GAME!!!</h1>
+    <span class="score-span">Score: 🤩</span>
     <div class="buttonDiv">
+            <select id="category-select">
+                    <option value="none" id="optionDrop">--Choose an Category--</option>
+                    <option value="name" id="random">Random</option>
+                    <option value="id" id="jsSyntax">JavaScript Syntax</option>
+                    <option value="ability" id="">Ability</option>
+                    <option value="location" id="">Location</option>
+                    <option value="move" id="">Move</option>
+                </select>
        <a href="#" class="myButton">Refresh</a>
-       <span class="life-span">❤️:<span class="numberLivess"></span></span>
+       <span class="life-span"></span>
     </div>
 
     <p class="dashes"></p>

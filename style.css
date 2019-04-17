@@ -5,7 +5,7 @@ body{
 /******************************CLASS TAGS*******************************/
 
 .container {
-    margin-top: 200px;
+    margin-top: 25%;
 }
 
 .letter {
@@ -32,11 +32,23 @@ body{
     left: 48%;
 }
 
+#category-select {
+    position: absolute;
+    left: 20%;
+}
+
 .life-span {
     border: 2px solid black;
     padding: 10px 30px 10px 10px;
     position: absolute;
     left: 88%;
+}
+
+.score-span {
+    border: 2px solid black;
+    padding: 10px 30px 10px 10px;
+    position: absolute;
+    left: 5%;
 }
 
 .poof {
