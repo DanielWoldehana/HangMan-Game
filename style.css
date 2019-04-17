@@ -3,9 +3,22 @@ body{
 }
 
 /******************************CLASS TAGS*******************************/
+#main-container {
+    z-index: 1;
+}
+
+canvas {
+    border: 2px solid rgba(0, 0, 0, 0.479);
+    background-color: lightblue;
+    z-index: -1;
+    position: fixed;
+    top:0;
+    left:0;
+}
+
 
 .container {
-    margin-top: 25%;
+margin-top: 20%;
 }
 
 .letter {

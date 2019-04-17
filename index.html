@@ -8,16 +8,14 @@
     <title>Document</title>
 </head>
 <body>
+  <div id="main-container">
     <h1> HANGMAN GAME!!!</h1>
     <span class="score-span">Score: 🤩</span>
     <div class="buttonDiv">
             <select id="category-select">
                     <option value="none" id="optionDrop">--Choose an Category--</option>
-                    <option value="name" id="random">Random</option>
-                    <option value="id" id="jsSyntax">JavaScript Syntax</option>
-                    <option value="ability" id="">Ability</option>
-                    <option value="location" id="">Location</option>
-                    <option value="move" id="">Move</option>
+                    <option value="random" id="random">Random</option>
+                    <option value="jsSyntax" id="jsSyntax">JavaScript Syntax</option>
                 </select>
        <a href="#" class="myButton">Refresh</a>
        <span class="life-span"></span>
@@ -25,6 +23,9 @@
 
     <p class="dashes"></p>
 
+   
+       
+   
 
     <main class="container">
               <a href="#"><div class="letter" id="A">A</div></a>
@@ -54,7 +55,8 @@
               <a href="#"><div class="letter" id="Y">Y</div></a>
               <a href="#"><div class="letter" id="Z">Z</div></a>
     </main>
-
+    </div>
+    <canvas></canvas>
     <script src="main.js"></script>
 </body>
 </html>
