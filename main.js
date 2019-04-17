@@ -1,28 +1,39 @@
-let  wordBank = ['java', 'javascript', 'css']
-
-
-let categoryValue = document.querySelector("#category-select").value
-// categoryValue.addEventListener('click', function(evt){
-    console.log(categoryValue)
-    if(categoryValue == "random"){
-      wordBank.push("Hello", "there")
-     }
-// })
 
 
 
-
-
-
-let random = Math.floor(Math.random() * wordBank.length)
+let categoryValue = document.querySelector("#category-select")
+categoryValue.addEventListener('change', categorySelect)
 let myButton = document.querySelector(".myButton")
+let randomWord;
 
 myButton.addEventListener("click", function(evt){
     evt.preventDefault()
     location.reload()
 })
 
-let randomWord = wordBank[random].toUpperCase()
+function categorySelect(evt){
+    let wordBank 
+if(evt.target.value == "none"){
+        console.log(evt.target.value)
+        console.log("its there")
+        wordBank = ["apples"]
+} else if(evt.target.value == "random"){
+    console.log(evt.target.value)
+    console.log("its there")
+    wordBank = ["elephant", "hangman", "dinosaur", "react", "piller", "riddles", "code", "computer"]
+}else if(evt.target.value == "jsSyntax"){
+    console.log(evt.target.value)
+    console.log("its there")
+    wordBank = ["javaScript", "function", "let", "classlist", "attribute", "const", "method", "array", "script", "object"]
+}
+
+
+
+
+
+let random = Math.floor(Math.random() * wordBank.length)
+
+randomWord = wordBank[random].toUpperCase()
 let myP = document.querySelector(".dashes")
 for(let i = 0; i < randomWord.length; i++){
    console.log(randomWord[i])
@@ -40,6 +51,7 @@ for(let i = 0; i < randomWord.length; i++){
 
 }
 
+}
 const buttons = document.querySelectorAll('.js-button')
 
 for (let i = 0; i < buttons.length; i++) {
@@ -82,7 +94,7 @@ function findLetter(evt){
     if (!randomWord.includes(`${evt.target.id}`)){
         if(lifes <= 1){
 
-            var msg =  new SpeechSynthesisUtterance('Game Over the answer was ' + randomWord.toLocaleLowerCase() + 'Try again')
+            var msg =  new SpeechSynthesisUtterance('Game Over the answer was ' + randomWord.toLocaleLowerCase())
             msg.rate = 1.0
             window.speechSynthesis.speak(msg);
             location.reload()

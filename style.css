@@ -88,8 +88,8 @@ canvas {
 }
 
 @-webkit-keyframes animate6 {
-    0% { left: 900px; right: 900px;}
-    100% { left: 500px; right: 500px;}
+    0% { left: 900px; right: 0px;}
+    100% { left: 450px; right: 0px;}
 }
 
 .kaguya5 {
