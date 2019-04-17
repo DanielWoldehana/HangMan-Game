@@ -94,19 +94,20 @@ canvas.height = window.innerHeight;
 let c = canvas.getContext('2d');
 c.fillStyle = "blue";
 
-function Circle(x, y, dx, dy, radius, r, g, b){
+function Circle(x, y, dx, dy, radius, r, g, b, o){
     this.x = x
     this.y = y
     this.dx = dx
     this.dy = dy
     this.radius = Math.floor(Math.random() * 30)
-   this.r = r
-   this.g = g
-   this.b = b
+   this.r = Math.floor(Math.random() * 255)
+   this.g = Math.floor(Math.random() * 255)
+   this.b = Math.floor(Math.random() * 255)
+   this.o = Math.random() * 1
     this.draw = function(){
        c.beginPath();
        c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-       c.strokeStyle = "white";
+       c.strokeStyle = `rgb(${this.r},${this.g},${this.b}, ${o})`;
        c.stroke();
     }
     this.update = function(){
