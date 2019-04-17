@@ -1,17 +1,18 @@
 let  wordBank = ['java', 'javascript', 'css']
 
 
-let categoryValue = document.querySelector("#category-select")
-categoryValue.addEventListener('click', function(evt){
-    if(categoryValue.value == "random"){
+let categoryValue = document.querySelector("#category-select").value
+// categoryValue.addEventListener('click', function(evt){
+    console.log(categoryValue)
+    if(categoryValue == "random"){
       wordBank.push("Hello", "there")
      }
-})
+// })
 
 
 
 
-// let  wordBank = ['java', 'javascript', 'css']
+
 
 let random = Math.floor(Math.random() * wordBank.length)
 let myButton = document.querySelector(".myButton")
@@ -39,6 +40,18 @@ for(let i = 0; i < randomWord.length; i++){
 
 }
 
+const buttons = document.querySelectorAll('.js-button')
+
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', function(evt) {
+    evt.preventDefault();
+    alert("You clicked a button!")
+  })
+}
+
+
+
+
 let myKeyBoard = document.querySelector(".container")
 myKeyBoard.addEventListener("click", findLetter)
 let score = 0 
@@ -57,7 +70,8 @@ function findLetter(evt){
                let scoreSpan = document.querySelector(".score-span")
                scoreSpan.innerHTML = `Score: 🤩 ${score}`
                if(score == randomWord.length){
-                   alert("YOU WIN! you're Hangin in there....get it 🤣")
+                var msg =  new SpeechSynthesisUtterance("YOU WIN ");
+                window.speechSynthesis.speak(msg);
                }
     }
         
@@ -67,7 +81,10 @@ function findLetter(evt){
 
     if (!randomWord.includes(`${evt.target.id}`)){
         if(lifes <= 1){
-            alert('GAME OVER the answer was ' + randomWord)
+
+            var msg =  new SpeechSynthesisUtterance('Game Over the answer was ' + randomWord.toLocaleLowerCase() + 'Try again')
+            msg.rate = 1.0
+            window.speechSynthesis.speak(msg);
             location.reload()
             
             } 
@@ -77,16 +94,22 @@ function findLetter(evt){
         img += 1
         console.log(lifes)
         life.innerHTML = `❤️: ${lifes}`
-        if(img !== 5){
+        if(img < 5){
         let hangImg = document.createElement("img")
         hangImg.setAttribute("src", `/images/Kaguya${img}.png`)
         console.log(img + " image #")
         hangImg.setAttribute("class", "kaguya1 kaguya")
         myhanger.appendChild(hangImg)
-        } else {
+        } else if(img == 5){
             let hangImg = document.createElement("img")
             hangImg.setAttribute("src", `/images/Kaguya${img}.png`)
             hangImg.setAttribute("class", "kaguya5")
+            myhanger.appendChild(hangImg)
+            console.log("true")
+        } else if(img == 6){
+            let hangImg = document.createElement("img")
+            hangImg.setAttribute("src", `/images/Kaguya${img}.png`)
+            hangImg.setAttribute("class", "kaguya6")
             myhanger.appendChild(hangImg)
             console.log("true")
         }
@@ -94,7 +117,7 @@ function findLetter(evt){
 } 
  
  let life = document.querySelector(".life-span")
-let lifes = 6
+let lifes = 7
 life.innerHTML = `❤️: 6`
 let img = 0
 

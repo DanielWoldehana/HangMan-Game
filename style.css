@@ -1,15 +1,23 @@
 body{
     text-align: center;
+    margin: 0;
 }
 
 /******************************CLASS TAGS*******************************/
+h1{
+    font-family: 'Londrina Outline', cursive;
+    font-size: 4em;
+    margin-top: 0;
+    margin-bottom: 20px; 
+}
+
 #main-container {
     z-index: 1;
 }
 
 canvas {
     border: 2px solid rgba(0, 0, 0, 0.479);
-    background-color: rgb(173, 216, 230);
+    background-color: rgba(173, 216, 230, 0.658);
     z-index: -1;
     position: fixed;
     top:0;
@@ -73,12 +81,35 @@ canvas {
     left: 35%;
     top: 25%;
 }
+
+@-webkit-keyframes animate5 {
+    0% { left: 0px; right: 0px;}
+    100% { left: 100px; right:0;}
+}
+
+@-webkit-keyframes animate6 {
+    0% { left: 900px; right: 900px;}
+    100% { left: 500px; right: 500px;}
+}
+
 .kaguya5 {
     position: absolute;
     width: 700px;
     height: 300px;
     left: 5%;
     top: 15%;
+    -webkit-animation-name: animate5;
+    -webkit-animation-duration: 4s;
+}
+
+.kaguya6 {
+    position: absolute;
+    width: 700px;
+    height: 300px;
+    right: 20%;
+    top: 15%;
+    -webkit-animation-name: animate6;
+    -webkit-animation-duration: 4s;
 }
 
 #category-select {
