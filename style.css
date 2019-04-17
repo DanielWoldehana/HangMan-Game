@@ -18,12 +18,19 @@ canvas {
 
 
 .container {
+    margin-top:0;
+    width: 100%;
+    height: 10%;
+}
+
+.dashes {
+    margin-top: 20%;
 }
 
 .letter {
     display: inline-block;
     color: black;
-    font-size: 40px;
+    font-size: 30px;
     margin: 20px;
     background-color: bisque;
     border: 2px solid black;
@@ -46,6 +53,27 @@ canvas {
 .myButton:hover{
     background-color: rgb(0, 89, 255);
 }
+
+.hangman-img {
+    position: relative;
+}
+
+.hanger {
+    height: 500px;
+    width: 500px;
+    position: relative;
+    right: 10%;
+
+}
+
+.kaguya1, .kaguya {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    left: 35%;
+    top: 25%;
+}
+
 #category-select {
     position: absolute;
     left: 20%;

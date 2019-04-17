@@ -55,17 +55,13 @@ function findLetter(evt){
                let scoreSpan = document.querySelector(".score-span")
                scoreSpan.innerHTML = `Score: 🤩 ${score}`
                if(score == randomWord.length){
-                   alert("YOU WIN!")
+                   alert("YOU WIN! you're Hangin in there....get it 🤣")
                }
     }
         
     } 
     
     }
-    // if (randomWord.includes(`${evt.target.id}`)){
-    //     score += 1
-    //     console.log(score)
-    // }
 
     if (!randomWord.includes(`${evt.target.id}`)){
         if(lifes <= 1){
@@ -135,7 +131,6 @@ function Circle(x, y, dx, dy, radius){
        let y = Math.random() * (innerHeight - radius * 2) + radius
        let dx = (Math.random() - 0.5) * 3
        let dy = (Math.random() - 0.5) * 3
-    //    c.strokeStyle = `rgb(${myr}, ${myg}, ${myb}, ${o})`;
         c.strokeStyle = `rgb( 255, 255, 255)`;
        circlesArray.push(new Circle(x, y, dx, dy, radius))
        i++
