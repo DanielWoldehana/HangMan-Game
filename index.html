@@ -1,68 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="style.css">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Faster+One|Fredericka+the+Great|Londrina+Outline|Shojumaru" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css?family=Londrina+Outline" rel="stylesheet">
-    <title>Document</title>
-</head>
-<body>
-  <div id="main-container">
-    <h1> HANGNADO GAME!!!</h1>
-    <span class="score-span">Score: 🤩</span>
-    <div class="buttonDiv">
-            <select id="category-select">
-                    <option value="none" id="optionDrop">--Choose an Category--</option>
-                    <option value="random" id="random">Random</option>
-                    <option value="jsSyntax" id="jsSyntax">JavaScript Syntax</option>
-                </select>
-       <a href="#" class="myButton">Play Again</a>
-       <span class="life-span"></span>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Londrina+Outline"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cute+Font"
+      rel="stylesheet"
+    />
+    <title>Get Hooked Game</title>
+  </head>
+  <body>
+    <div id="main-container">
+      <h1>GET HOOKED!!!</h1>
+      <span class="score-span">Score: 🤩</span>
+      <div class="buttonDiv">
+        <select id="category-select">
+          <option value="none" id="optionDrop">--Choose an Category--</option>
+          <option value="random" id="random">Random</option>
+          <option value="jsSyntax" id="jsSyntax">JavaScript Syntax</option>
+        </select>
+        <span class="pickCat">Pick a Category to Start Playing</span>
+        <a href="#" class="myButton">Play Again</a>
+        </form>
+        <span class="life-span"></span>
+      </div>
 
-    <div class="hangman-img">
-      <img src="/images/fishingRod.png" alt="fish-rod-hanger" class="hanger">
-      <!-- <img src="/images/KaguyaHead.png" class="kaguya1 kaguya">
-      <img src="/images/KaguyaBody.png" class="kaguya2 kaguya">
-      <img src="/images/KaguyaLeft.png" class="kaguya3 kaguya">
-      <img src="/images/KaguyaRight.png" class="kaguya4 kaguya"> -->
-    </div>
+      <div class="hangman-img">
+        <img
+          src="/images/fishingRod.png"
+          alt="fish-rod-hanger"
+          class="hanger"
+        />
+      </div>
 
-    <p class="dashes"></p>
+      <p class="dashes player2Dashes"></p>
 
-    <main class="container">
-              <a href="#"><div class="letter" id="A">A</div></a>
-              <a href="#"><div class="letter" id="B">B</div></a>
-              <a href="#"><div class="letter" id="C">C</div></a>
-              <a href="#"><div class="letter" id="D">D</div></a>
-              <a href="#"><div class="letter" id="E">E</div></a>
-              <a href="#"><div class="letter" id="F">F</div></a>
-              <a href="#"><div class="letter" id="G">G</div></a>
-              <a href="#"><div class="letter" id="H">H</div></a>
-              <a href="#"><div class="letter" id="I">I</div></a>
-              <a href="#"><div class="letter" id="J">J</div></a>
-              <a href="#"><div class="letter" id="K">K</div></a>
-              <a href="#"><div class="letter" id="L">L</div></a>
-              <a href="#"><div class="letter" id="M">M</div></a>
-              <a href="#"><div class="letter" id="N">N</div></a>
-              <a href="#"><div class="letter" id="O">O</div></a>
-              <a href="#"><div class="letter" id="P">P</div></a>
-              <a href="#"><div class="letter" id="Q">Q</div></a>
-              <a href="#"><div class="letter" id="R">R</div></a>
-              <a href="#"><div class="letter" id="S">S</div></a>
-              <a href="#"><div class="letter" id="T">T</div></a>
-              <a href="#"><div class="letter" id="U">U</div></a>
-              <a href="#"><div class="letter" id="V">V</div></a>
-              <a href="#"><div class="letter" id="W">W</div></a>
-              <a href="#"><div class="letter" id="X">X</div></a>
-              <a href="#"><div class="letter" id="Y">Y</div></a>
-              <a href="#"><div class="letter" id="Z">Z</div></a>
-    </main>
+      <main class="container">
+        <a href="#"><div class="letter" id="A">A</div></a>
+        <a href="#"><div class="letter" id="B">B</div></a>
+        <a href="#"><div class="letter" id="C">C</div></a>
+        <a href="#"><div class="letter" id="D">D</div></a>
+        <a href="#"><div class="letter" id="E">E</div></a>
+        <a href="#"><div class="letter" id="F">F</div></a>
+        <a href="#"><div class="letter" id="G">G</div></a>
+        <a href="#"><div class="letter" id="H">H</div></a>
+        <a href="#"><div class="letter" id="I">I</div></a>
+        <a href="#"><div class="letter" id="J">J</div></a>
+        <a href="#"><div class="letter" id="K">K</div></a>
+        <a href="#"><div class="letter" id="L">L</div></a>
+        <a href="#"><div class="letter" id="M">M</div></a>
+        <a href="#"><div class="letter" id="N">N</div></a>
+        <a href="#"><div class="letter" id="O">O</div></a>
+        <a href="#"><div class="letter" id="P">P</div></a>
+        <a href="#"><div class="letter" id="Q">Q</div></a>
+        <a href="#"><div class="letter" id="R">R</div></a>
+        <a href="#"><div class="letter" id="S">S</div></a>
+        <a href="#"><div class="letter" id="T">T</div></a>
+        <a href="#"><div class="letter" id="U">U</div></a>
+        <a href="#"><div class="letter" id="V">V</div></a>
+        <a href="#"><div class="letter" id="W">W</div></a>
+        <a href="#"><div class="letter" id="X">X</div></a>
+        <a href="#"><div class="letter" id="Y">Y</div></a>
+        <a href="#"><div class="letter" id="Z">Z</div></a>
+      </main>
     </div>
     <canvas></canvas>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
