@@ -1,3 +1,6 @@
+var splashSound = new Audio();
+    splashSound.src = "waterdrop.mp3"
+    
 var randomWords = require('random-words');
 import swal from 'sweetalert';
 
@@ -79,6 +82,9 @@ function categorySelect(evt) {
     wordBank = megaLetter
    lifes = 10
    life.innerHTML = `❤️: 10`;
+   let msg = new SpeechSynthesisUtterance("Level Mega Hard,lifes added")
+   msg.rate = 0.95
+   window.speechSynthesis.speak(msg)
   }
 
   let random = Math.floor(Math.random() * wordBank.length);
@@ -112,6 +118,7 @@ function findLetter(evt) {
     console.log(evt.target.id);
     for (let i = 0; i < randomWord.length; i++) {
       if (evt.target.id == document.getElementById(`${i}`).textContent) {
+        splashSound.play()
         document.getElementById(`${i}`).classList.remove("poof");
         score += randomWord.length / randomWord.length;
         let scoreSpan = document.querySelector(".score-span");
@@ -153,7 +160,7 @@ function findLetter(evt) {
     life.innerHTML = `❤️: ${lifes}`;
     if (img < 5) {
       let hangImg = document.createElement("img");
-      hangImg.setAttribute("src", `/images/Kaguya${img}.png`);
+      hangImg.setAttribute("src", `images/Kaguya${img}.png`);
       console.log(img + " image #");
       hangImg.setAttribute("class", "kaguya1 kaguya");
       myhanger.appendChild(hangImg);

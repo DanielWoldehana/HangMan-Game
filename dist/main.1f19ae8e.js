@@ -468,6 +468,9 @@ var _sweetalert = _interopRequireDefault(require("sweetalert"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var splashSound = new Audio();
+splashSound.src = "waterdrop.mp3";
+
 var randomWords = require('random-words');
 
 var words = randomWords(800);
@@ -546,6 +549,9 @@ function categorySelect(evt) {
     wordBank = megaLetter;
     lifes = 10;
     life.innerHTML = "\u2764\uFE0F: 10";
+    var msg = new SpeechSynthesisUtterance("Level Mega Hard,lifes added");
+    msg.rate = 0.95;
+    window.speechSynthesis.speak(msg);
   }
 
   var random = Math.floor(Math.random() * wordBank.length);
@@ -581,6 +587,7 @@ function findLetter(evt) {
 
     for (var _i3 = 0; _i3 < randomWord.length; _i3++) {
       if (evt.target.id == document.getElementById("".concat(_i3)).textContent) {
+        splashSound.play();
         document.getElementById("".concat(_i3)).classList.remove("poof");
         score += randomWord.length / randomWord.length;
         var scoreSpan = document.querySelector(".score-span");
@@ -632,7 +639,7 @@ function findLetter(evt) {
 
     if (img < 5) {
       var hangImg = document.createElement("img");
-      hangImg.setAttribute("src", "/images/Kaguya".concat(img, ".png"));
+      hangImg.setAttribute("src", "images/Kaguya".concat(img, ".png"));
       console.log(img + " image #");
       hangImg.setAttribute("class", "kaguya1 kaguya");
       myhanger.appendChild(hangImg);
@@ -764,7 +771,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58819" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58761" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

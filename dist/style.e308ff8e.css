@@ -49,7 +49,7 @@ canvas {
   border: 2px solid black;
   padding: 0 20px;
   border-radius: 20%;
-  font-family: "Cute Font", cursive;
+  font-family: 'Dokdo', cursive;
 }
 
 .buttonDiv {
@@ -182,7 +182,7 @@ canvas {
 .correct-letter {
   color: black;
   font-size: 40px;
-  font-family: "Cute Font", cursive;
+  font-family: 'Dokdo', cursive;
 }
 
 .myDivs {
