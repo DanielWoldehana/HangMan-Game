@@ -1,45 +1,44 @@
 var splashSound = new Audio();
-    splashSound.src = "waterdrop.mp3"
-    
-var randomWords = require('random-words');
-import swal from 'sweetalert';
+splashSound.src = "waterdrop.mp3";
 
-let words = randomWords(800)
+var randomWords = require("random-words");
+import swal from "sweetalert";
 
-let randomLetter = words
-let twoLetter = []
-let threeLetter = []
-let fourLetter = []
-let fiveLetter = []
-let sixLetter = []
-let sevenLetter = []
-let eightLetter = []
-let nineLetter = []
-let tenLetter = []
-let megaLetter = []
-for(let i = 0 ; i < words.length; i++){
-  if(words[i].length == 2){
-    twoLetter.push(words[i])
-  } else if(words[i].length == 3){
-    threeLetter.push(words[i])
-  } else if(words[i].length == 4){
-    fourLetter.push(words[i])
-  } else if(words[i].length == 5){
-  fiveLetter.push(words[i])
-  } else if(words[i].length == 6){
-  sixLetter.push(words[i])
-  } else if(words[i].length == 7){
-    sevenLetter.push(words[i])
-  } else if(words[i].length == 8){
-  eightLetter.push(words[i])
-  } else if(words[i].length == 9){
-  nineLetter.push(words[i])
-  } else if(words[i].length == 10){
-    tenLetter.push(words[i])
-    } else if(words[i].length > 10){
-      megaLetter.push(words[i])
-      }
-  
+let words = randomWords(800);
+
+let randomLetter = words;
+let twoLetter = [];
+let threeLetter = [];
+let fourLetter = [];
+let fiveLetter = [];
+let sixLetter = [];
+let sevenLetter = [];
+let eightLetter = [];
+let nineLetter = [];
+let tenLetter = [];
+let megaLetter = [];
+for (let i = 0; i < words.length; i++) {
+  if (words[i].length == 2) {
+    twoLetter.push(words[i]);
+  } else if (words[i].length == 3) {
+    threeLetter.push(words[i]);
+  } else if (words[i].length == 4) {
+    fourLetter.push(words[i]);
+  } else if (words[i].length == 5) {
+    fiveLetter.push(words[i]);
+  } else if (words[i].length == 6) {
+    sixLetter.push(words[i]);
+  } else if (words[i].length == 7) {
+    sevenLetter.push(words[i]);
+  } else if (words[i].length == 8) {
+    eightLetter.push(words[i]);
+  } else if (words[i].length == 9) {
+    nineLetter.push(words[i]);
+  } else if (words[i].length == 10) {
+    tenLetter.push(words[i]);
+  } else if (words[i].length > 10) {
+    megaLetter.push(words[i]);
+  }
 }
 let categoryValue = document.querySelector("#category-select");
 categoryValue.addEventListener("change", categorySelect);
@@ -58,33 +57,33 @@ life.innerHTML = `❤️: 7`;
 
 let wordBank;
 function categorySelect(evt) {
-  if(evt.target.value == "randomLetters"){
-    wordBank = randomLetter
+  if (evt.target.value == "randomLetters") {
+    wordBank = randomLetter;
   } else if (evt.target.value == "twoLetters") {
-    wordBank = twoLetter
+    wordBank = twoLetter;
   } else if (evt.target.value == "threeLetters") {
-    wordBank = threeLetter
+    wordBank = threeLetter;
   } else if (evt.target.value == "fourLetters") {
-    wordBank = fourLetter
+    wordBank = fourLetter;
   } else if (evt.target.value == "fiveLetters") {
-    wordBank = fiveLetter
+    wordBank = fiveLetter;
   } else if (evt.target.value == "sixLetters") {
-    wordBank = sixLetter
+    wordBank = sixLetter;
   } else if (evt.target.value == "sevenLetters") {
-    wordBank = sevenLetter
+    wordBank = sevenLetter;
   } else if (evt.target.value == "eightLetters") {
-    wordBank = eightLetter
+    wordBank = eightLetter;
   } else if (evt.target.value == "nineLetters") {
-    wordBank = nineLetter
+    wordBank = nineLetter;
   } else if (evt.target.value == "tenLetters") {
-    wordBank = tenLetter
+    wordBank = tenLetter;
   } else if (evt.target.value == "megaLetters") {
-    wordBank = megaLetter
-   lifes = 10
-   life.innerHTML = `❤️: 10`;
-   let msg = new SpeechSynthesisUtterance("Level Mega Hard,lifes added")
-   msg.rate = 0.95
-   window.speechSynthesis.speak(msg)
+    wordBank = megaLetter;
+    lifes = 10;
+    life.innerHTML = `❤️: 10`;
+    let msg = new SpeechSynthesisUtterance("Level Mega Hard,lifes added");
+    msg.rate = 0.95;
+    window.speechSynthesis.speak(msg);
   }
 
   let random = Math.floor(Math.random() * wordBank.length);
@@ -118,39 +117,54 @@ function findLetter(evt) {
     console.log(evt.target.id);
     for (let i = 0; i < randomWord.length; i++) {
       if (evt.target.id == document.getElementById(`${i}`).textContent) {
-        splashSound.play()
+        splashSound.play();
         document.getElementById(`${i}`).classList.remove("poof");
         score += randomWord.length / randomWord.length;
         let scoreSpan = document.querySelector(".score-span");
         scoreSpan.innerHTML = `Score: 🤩 ${score}`;
-        if(randomWord.length - score == 3){
+        if (randomWord.length - score == 3) {
           var msg = new SpeechSynthesisUtterance("You are so close");
-          msg.rate = .95;
-          window.speechSynthesis.speak(msg); 
+          msg.rate = 0.95;
+          window.speechSynthesis.speak(msg);
         }
         if (score == randomWord.length) {
           var msg = new SpeechSynthesisUtterance("YOU WIN ");
-          swal("YOU WIN!", "Choose a Category for the next Challange!", "success");
-          window.speechSynthesis.speak(msg); 
-        } if(score == randomWord.length){
-         setTimeout(function(){location.reload()},4000)
+          swal(
+            "YOU WIN!",
+            "Choose a Category for the next Challange!",
+            "success"
+          );
+          window.speechSynthesis.speak(msg);
+        }
+        if (score == randomWord.length) {
+          setTimeout(function() {
+            location.reload();
+          }, 4000);
         }
       }
     }
   }
 
   if (!randomWord.includes(`${evt.target.id}`)) {
-    if(lifes == 2){
-      var msg = new SpeechSynthesisUtterance("1 more chance")
-      msg.rate = 0.95
-      window.speechSynthesis.speak(msg)
+    if (lifes == 2) {
+      var msg = new SpeechSynthesisUtterance("1 more chance");
+      msg.rate = 0.95;
+      window.speechSynthesis.speak(msg);
     }
     if (lifes <= 1) {
-      swal("Game Over!", `Answer was ${randomWord.toLocaleLowerCase()} ......Better Luck Next time!`, "error");
-      var msg = new SpeechSynthesisUtterance("Game Over the answer was " + randomWord.toLocaleLowerCase());
+      swal(
+        "Game Over!",
+        `Answer was ${randomWord.toLocaleLowerCase()} ......Better Luck Next time!`,
+        "error"
+      );
+      var msg = new SpeechSynthesisUtterance(
+        "Game Over the answer was " + randomWord.toLocaleLowerCase()
+      );
       msg.rate = 1.0;
       window.speechSynthesis.speak(msg);
-      setTimeout(function(){location.reload();}, 4000)
+      setTimeout(function() {
+        location.reload();
+      }, 4000);
     }
 
     console.log("wrong");
@@ -160,19 +174,19 @@ function findLetter(evt) {
     life.innerHTML = `❤️: ${lifes}`;
     if (img < 5) {
       let hangImg = document.createElement("img");
-      hangImg.setAttribute("src", `images/Kaguya${img}.png`);
+      hangImg.setAttribute("src", `Kaguya${img}.png`);
       console.log(img + " image #");
       hangImg.setAttribute("class", "kaguya1 kaguya");
       myhanger.appendChild(hangImg);
     } else if (img == 5) {
       let hangImg = document.createElement("img");
-      hangImg.setAttribute("src", `/images/Kaguya${img}.png`);
+      hangImg.setAttribute("src", `Kaguya${img}.png`);
       hangImg.setAttribute("class", "kaguya5");
       myhanger.appendChild(hangImg);
       console.log("true");
     } else if (img == 6) {
       let hangImg = document.createElement("img");
-      hangImg.setAttribute("src", `/images/Kaguya${img}.png`);
+      hangImg.setAttribute("src", `Kaguya${img}.png`);
       hangImg.setAttribute("class", "kaguya6");
       myhanger.appendChild(hangImg);
       console.log("true");

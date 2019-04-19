@@ -471,7 +471,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var splashSound = new Audio();
 splashSound.src = "waterdrop.mp3";
 
-var randomWords = require('random-words');
+var randomWords = require("random-words");
 
 var words = randomWords(800);
 var randomLetter = words;
@@ -595,7 +595,7 @@ function findLetter(evt) {
 
         if (randomWord.length - score == 3) {
           var msg = new SpeechSynthesisUtterance("You are so close");
-          msg.rate = .95;
+          msg.rate = 0.95;
           window.speechSynthesis.speak(msg);
         }
 
@@ -639,14 +639,14 @@ function findLetter(evt) {
 
     if (img < 5) {
       var hangImg = document.createElement("img");
-      hangImg.setAttribute("src", "images/Kaguya".concat(img, ".png"));
+      hangImg.setAttribute("src", "Kaguya".concat(img, ".png"));
       console.log(img + " image #");
       hangImg.setAttribute("class", "kaguya1 kaguya");
       myhanger.appendChild(hangImg);
     } else if (img == 5) {
       var _hangImg = document.createElement("img");
 
-      _hangImg.setAttribute("src", "/images/Kaguya".concat(img, ".png"));
+      _hangImg.setAttribute("src", "Kaguya".concat(img, ".png"));
 
       _hangImg.setAttribute("class", "kaguya5");
 
@@ -655,7 +655,7 @@ function findLetter(evt) {
     } else if (img == 6) {
       var _hangImg2 = document.createElement("img");
 
-      _hangImg2.setAttribute("src", "/images/Kaguya".concat(img, ".png"));
+      _hangImg2.setAttribute("src", "Kaguya".concat(img, ".png"));
 
       _hangImg2.setAttribute("class", "kaguya6");
 
@@ -771,7 +771,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58761" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62247" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
