@@ -1,4 +1,5 @@
 var randomWords = require('random-words');
+import swal from 'sweetalert';
 
 let words = randomWords(800)
 
@@ -115,22 +116,34 @@ function findLetter(evt) {
         score += randomWord.length / randomWord.length;
         let scoreSpan = document.querySelector(".score-span");
         scoreSpan.innerHTML = `Score: 🤩 ${score}`;
+        if(randomWord.length - score == 3){
+          var msg = new SpeechSynthesisUtterance("You are so close");
+          msg.rate = .95;
+          window.speechSynthesis.speak(msg); 
+        }
         if (score == randomWord.length) {
           var msg = new SpeechSynthesisUtterance("YOU WIN ");
-          window.speechSynthesis.speak(msg);
+          swal("YOU WIN!", "Choose a Category for the next Challange!", "success");
+          window.speechSynthesis.speak(msg); 
+        } if(score == randomWord.length){
+         setTimeout(function(){location.reload()},4000)
         }
       }
     }
   }
 
   if (!randomWord.includes(`${evt.target.id}`)) {
+    if(lifes == 2){
+      var msg = new SpeechSynthesisUtterance("1 more chance")
+      msg.rate = 0.95
+      window.speechSynthesis.speak(msg)
+    }
     if (lifes <= 1) {
-      var msg = new SpeechSynthesisUtterance(
-        "Game Over the answer was " + randomWord.toLocaleLowerCase()
-      );
+      swal("Game Over!", `Answer was ${randomWord.toLocaleLowerCase()} ......Better Luck Next time!`, "error");
+      var msg = new SpeechSynthesisUtterance("Game Over the answer was " + randomWord.toLocaleLowerCase());
       msg.rate = 1.0;
       window.speechSynthesis.speak(msg);
-      location.reload();
+      setTimeout(function(){location.reload();}, 4000)
     }
 
     console.log("wrong");

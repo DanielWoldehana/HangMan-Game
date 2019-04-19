@@ -188,7 +188,7 @@ canvas {
 .myDivs {
   display: inline-block;
   margin: 10px;
-  border-bottom: 5px solid rgba(65, 155, 182, 0.808);
+  border-bottom: 5px solid rgb(11, 16, 19);
   padding: 0 10px;
 }
 
