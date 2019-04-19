@@ -18,5 +18,9 @@
   "homepage": "https://github.com/DanielWoldehana/HangMan-Game#readme",
   "dependencies": {
     "random-words": "^1.1.0"
+  },
+  "devDependencies": {
+    "pug": "^2.0.3",
+    "sass": "^1.19.0"
   }
 }

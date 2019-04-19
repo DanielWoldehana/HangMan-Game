@@ -11,13 +11,19 @@ h1 {
   margin-bottom: 20px;
 }
 
+.hooked {
+  width: 80px;
+  height: 80px;
+  margin-top: 5px;
+}
+
 #main-container {
   z-index: 1;
 }
 
 canvas {
   border: 2px solid rgba(0, 0, 0, 0.479);
-  background-color: rgba(173, 216, 230, 0.658);
+  background: radial-gradient(circle,rgb(19, 92, 92) 0%,rgb(159, 214, 231) 100%);
   z-index: -1;
   position: fixed;
   top: 0;
@@ -39,11 +45,7 @@ canvas {
   color: black;
   font-size: 40px;
   margin: 10px;
-  background: radial-gradient(
-    circle,
-    rgb(211, 236, 236) 0%,
-    rgb(159, 214, 231) 100%
-  );
+  background: radial-gradient(circle,rgb(155, 243, 243) 0%,rgb(8, 71, 90) 100%);
   border: 2px solid black;
   padding: 0 20px;
   border-radius: 20%;
@@ -70,15 +72,16 @@ canvas {
   text-decoration: black;
   border: 2px solid black;
   color: black;
-  padding: 10px;
+  padding: 5px;
   position: absolute;
   left: 48%;
   border-radius: 30%;
   font-family: "Cute Font", cursive;
   font-size: 30px;
+  background-color: rgb(180, 210, 217);
 }
 .myButton:hover {
-  background-color: rgba(82, 109, 161, 0.637);
+  background-color: rgb(80, 180, 191);
 }
 
 #category-select {

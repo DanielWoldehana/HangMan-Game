@@ -2,6 +2,7 @@ var randomWords = require('random-words');
 
 let words = randomWords(800)
 
+let randomLetter = words
 let twoLetter = []
 let threeLetter = []
 let fourLetter = []
@@ -53,7 +54,9 @@ life.innerHTML = `❤️: 7`;
 
 let wordBank;
 function categorySelect(evt) {
-  if (evt.target.value == "twoLetters") {
+  if(evt.target.value == "randomLetters"){
+    wordBank = randomLetter
+  } else if (evt.target.value == "twoLetters") {
     wordBank = twoLetter
   } else if (evt.target.value == "threeLetters") {
     wordBank = threeLetter
