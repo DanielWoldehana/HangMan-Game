@@ -1,5 +1,41 @@
+var randomWords = require('random-words');
 
+let words = randomWords(800)
 
+let twoLetter = []
+let threeLetter = []
+let fourLetter = []
+let fiveLetter = []
+let sixLetter = []
+let sevenLetter = []
+let eightLetter = []
+let nineLetter = []
+let tenLetter = []
+let megaLetter = []
+for(let i = 0 ; i < words.length; i++){
+  if(words[i].length == 2){
+    twoLetter.push(words[i])
+  } else if(words[i].length == 3){
+    threeLetter.push(words[i])
+  } else if(words[i].length == 4){
+    fourLetter.push(words[i])
+  } else if(words[i].length == 5){
+  fiveLetter.push(words[i])
+  } else if(words[i].length == 6){
+  sixLetter.push(words[i])
+  } else if(words[i].length == 7){
+    sevenLetter.push(words[i])
+  } else if(words[i].length == 8){
+  eightLetter.push(words[i])
+  } else if(words[i].length == 9){
+  nineLetter.push(words[i])
+  } else if(words[i].length == 10){
+    tenLetter.push(words[i])
+    } else if(words[i].length > 10){
+      megaLetter.push(words[i])
+      }
+  
+}
 let categoryValue = document.querySelector("#category-select");
 categoryValue.addEventListener("change", categorySelect);
 let myButton = document.querySelector(".myButton");
@@ -11,38 +47,34 @@ myButton.addEventListener("click", function(evt) {
   location.reload();
 });
 
+let life = document.querySelector(".life-span");
+let lifes = 7;
+life.innerHTML = `❤️: 7`;
 
-let wordBank = ["elephant","hangman","dinosaur"]
+let wordBank;
 function categorySelect(evt) {
-
-  if (evt.target.value == "random") {
-    console.log(evt.target.value);
-    console.log("its there");
-    wordBank = [
-      "elephant",
-      "hangman",
-      "dinosaur",
-      "react",
-      "piller",
-      "riddles",
-      "code",
-      "computer"
-    ];
-  } else if (evt.target.value == "jsSyntax") {
-    console.log(evt.target.value);
-    console.log("its there");
-    wordBank = [
-      "javaScript",
-      "function",
-      "let",
-      "classlist",
-      "attribute",
-      "const",
-      "method",
-      "array",
-      "script",
-      "object"
-    ];
+  if (evt.target.value == "twoLetters") {
+    wordBank = twoLetter
+  } else if (evt.target.value == "threeLetters") {
+    wordBank = threeLetter
+  } else if (evt.target.value == "fourLetters") {
+    wordBank = fourLetter
+  } else if (evt.target.value == "fiveLetters") {
+    wordBank = fiveLetter
+  } else if (evt.target.value == "sixLetters") {
+    wordBank = sixLetter
+  } else if (evt.target.value == "sevenLetters") {
+    wordBank = sevenLetter
+  } else if (evt.target.value == "eightLetters") {
+    wordBank = eightLetter
+  } else if (evt.target.value == "nineLetters") {
+    wordBank = nineLetter
+  } else if (evt.target.value == "tenLetters") {
+    wordBank = tenLetter
+  } else if (evt.target.value == "megaLetters") {
+    wordBank = megaLetter
+   lifes = 10
+   life.innerHTML = `❤️: 10`;
   }
 
   let random = Math.floor(Math.random() * wordBank.length);
@@ -125,9 +157,6 @@ function findLetter(evt) {
   }
 }
 
-let life = document.querySelector(".life-span");
-let lifes = 7;
-life.innerHTML = `❤️: 6`;
 let img = 0;
 
 let mouse = {
