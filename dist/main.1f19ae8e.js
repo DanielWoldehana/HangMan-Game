@@ -468,8 +468,10 @@ var _sweetalert = _interopRequireDefault(require("sweetalert"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var splashSound = new Audio();
-splashSound.src = "waterdrop.mp3";
+var backgroundSound = new Audio();
+backgroundSound.src = "bubbles.mp3";
+var waterDrop = new Audio();
+waterDrop.src = "waterdrop.mp3";
 
 var randomWords = require("random-words");
 
@@ -580,6 +582,10 @@ var myhanger = document.querySelector(".hangman-img");
 
 function findLetter(evt) {
   evt.preventDefault();
+  waterDrop.pause();
+  waterDrop.currentTime = 0;
+  waterDrop.volume = 1;
+  waterDrop.play();
 
   if (evt.target.className == "letter") {
     evt.target.classList.add("poof");
@@ -587,7 +593,6 @@ function findLetter(evt) {
 
     for (var _i3 = 0; _i3 < randomWord.length; _i3++) {
       if (evt.target.id == document.getElementById("".concat(_i3)).textContent) {
-        splashSound.play();
         document.getElementById("".concat(_i3)).classList.remove("poof");
         score += randomWord.length / randomWord.length;
         var scoreSpan = document.querySelector(".score-span");
@@ -677,6 +682,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var c = canvas.getContext("2d");
 window.addEventListener("mousemove", function (evt) {
+  backgroundSound.volume = 0.069;
+  backgroundSound.play();
   mouse.x = evt.x;
   mouse.y = evt.y;
 });
@@ -771,7 +778,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62247" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57902" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -1,5 +1,8 @@
-var splashSound = new Audio();
-splashSound.src = "waterdrop.mp3";
+var backgroundSound = new Audio();
+backgroundSound.src = "bubbles.mp3";
+
+var waterDrop = new Audio();
+waterDrop.src = "waterdrop.mp3";
 
 var randomWords = require("random-words");
 import swal from "sweetalert";
@@ -112,12 +115,15 @@ let myhanger = document.querySelector(".hangman-img");
 
 function findLetter(evt) {
   evt.preventDefault();
+  waterDrop.pause();
+  waterDrop.currentTime = 0;
+  waterDrop.volume = 1;
+  waterDrop.play();
   if (evt.target.className == "letter") {
     evt.target.classList.add("poof");
     console.log(evt.target.id);
     for (let i = 0; i < randomWord.length; i++) {
       if (evt.target.id == document.getElementById(`${i}`).textContent) {
-        splashSound.play();
         document.getElementById(`${i}`).classList.remove("poof");
         score += randomWord.length / randomWord.length;
         let scoreSpan = document.querySelector(".score-span");
@@ -208,6 +214,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let c = canvas.getContext("2d");
 window.addEventListener("mousemove", function(evt) {
+  backgroundSound.volume = 0.069;
+  backgroundSound.play();
   mouse.x = evt.x;
   mouse.y = evt.y;
 });
