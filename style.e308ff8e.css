@@ -1,0 +1,193 @@
+body {
+  text-align: center;
+  margin: 0;
+}
+
+/******************************CLASS TAGS*******************************/
+h1 {
+  font-family: "Londrina Outline", cursive;
+  font-size: 4em;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+#main-container {
+  z-index: 1;
+}
+
+canvas {
+  border: 2px solid rgba(0, 0, 0, 0.479);
+  background-color: rgba(173, 216, 230, 0.658);
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.container {
+  margin-top: 0;
+  width: 100%;
+  height: 10%;
+}
+
+.dashes {
+  margin-top: 5%;
+}
+
+.letter {
+  display: inline-block;
+  color: black;
+  font-size: 40px;
+  margin: 10px;
+  background: radial-gradient(
+    circle,
+    rgb(211, 236, 236) 0%,
+    rgb(159, 214, 231) 100%
+  );
+  border: 2px solid black;
+  padding: 0 20px;
+  border-radius: 20%;
+  font-family: "Cute Font", cursive;
+}
+
+.buttonDiv {
+  position: relative;
+  height: 50px;
+}
+.myInput {
+  position: absolute;
+  left: 60%;
+  height: 50%;
+  border-radius: 15%;
+}
+.submitButton {
+  position: absolute;
+  left: 70%;
+  height: 55%;
+  border-radius: 15%;
+}
+.myButton {
+  text-decoration: black;
+  border: 2px solid black;
+  color: black;
+  padding: 10px;
+  position: absolute;
+  left: 48%;
+  border-radius: 30%;
+  font-family: "Cute Font", cursive;
+  font-size: 30px;
+}
+.myButton:hover {
+  background-color: rgba(82, 109, 161, 0.637);
+}
+
+#category-select {
+  position: absolute;
+  left: 20%;
+  top: 65%;
+  height: 20px;
+}
+
+.pickCat {
+  position: absolute;
+  left: 20%;
+  top: 0;
+  font-size: 30px;
+  font-family: "Cute Font", cursive;
+}
+
+.hangman-img {
+  position: relative;
+}
+
+.hanger {
+  height: 300px;
+  width: 300px;
+  position: relative;
+  right: 12%;
+}
+
+.kaguya1,
+.kaguya {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 35%;
+  top: 25%;
+}
+
+@-webkit-keyframes animate5 {
+  0% {
+    left: 0px;
+    right: 0px;
+  }
+  100% {
+    left: 100px;
+    right: 0;
+  }
+}
+
+@-webkit-keyframes animate6 {
+  0% {
+    left: 900px;
+    right: 0px;
+  }
+  100% {
+    left: 450px;
+    right: 0px;
+  }
+}
+
+.kaguya5 {
+  position: absolute;
+  width: 700px;
+  height: 300px;
+  left: 5%;
+  top: 15%;
+  -webkit-animation-name: animate5;
+  -webkit-animation-duration: 4s;
+}
+
+.kaguya6 {
+  position: absolute;
+  width: 700px;
+  height: 300px;
+  right: 20%;
+  top: 15%;
+  -webkit-animation-name: animate6;
+  -webkit-animation-duration: 4s;
+}
+
+.life-span {
+  border: 2px solid black;
+  padding: 10px 30px 10px 10px;
+  position: absolute;
+  left: 88%;
+}
+
+.score-span {
+  border: 2px solid black;
+  padding: 10px 30px 10px 10px;
+  position: absolute;
+  left: 5%;
+}
+
+.poof {
+  visibility: hidden;
+}
+
+.correct-letter {
+  color: black;
+  font-size: 40px;
+  font-family: "Cute Font", cursive;
+}
+
+.myDivs {
+  display: inline-block;
+  margin: 10px;
+  border-bottom: 5px solid rgba(65, 155, 182, 0.808);
+  padding: 0 10px;
+}
+
+
+/*# sourceMappingURL=/style.e308ff8e.css.map */
