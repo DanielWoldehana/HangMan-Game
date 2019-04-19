@@ -225,7 +225,7 @@ function Circle(x, y, dx, dy, radius) {
   this.y = y;
   this.dx = dx;
   this.dy = dy;
-  this.radius = Math.floor(Math.random() * 10);
+  this.radius = Math.floor(Math.random() * 10 + 1);
 
   this.o = Math.random() * 2;
   this.draw = function() {
