@@ -462,6 +462,7 @@ words.wordList = wordList;
 var randomWords = require('random-words');
 
 var words = randomWords(800);
+var randomLetter = words;
 var twoLetter = [];
 var threeLetter = [];
 var fourLetter = [];
@@ -512,7 +513,9 @@ life.innerHTML = "\u2764\uFE0F: 7";
 var wordBank;
 
 function categorySelect(evt) {
-  if (evt.target.value == "twoLetters") {
+  if (evt.target.value == "randomLetters") {
+    wordBank = randomLetter;
+  } else if (evt.target.value == "twoLetters") {
     wordBank = twoLetter;
   } else if (evt.target.value == "threeLetters") {
     wordBank = threeLetter;
@@ -730,7 +733,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55658" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58547" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
