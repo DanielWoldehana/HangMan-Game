@@ -23,7 +23,11 @@ h1 {
 
 canvas {
   border: 2px solid rgba(0, 0, 0, 0.479);
-  background: radial-gradient(circle,rgb(19, 92, 92) 0%,rgb(159, 214, 231) 100%);
+  background: radial-gradient(
+    circle,
+    rgb(19, 92, 92) 0%,
+    rgb(159, 214, 231) 100%
+  );
   z-index: -1;
   position: fixed;
   top: 0;
@@ -45,11 +49,15 @@ canvas {
   color: black;
   font-size: 40px;
   margin: 10px;
-  background: radial-gradient(circle,rgb(155, 243, 243) 0%,rgb(8, 71, 90) 100%);
+  background: radial-gradient(
+    circle,
+    rgb(155, 243, 243) 0%,
+    rgb(8, 71, 90) 100%
+  );
   border: 2px solid black;
   padding: 0 20px;
   border-radius: 20%;
-  font-family: 'Dokdo', cursive;
+  font-family: "Dokdo", cursive;
 }
 
 .buttonDiv {
@@ -182,7 +190,7 @@ canvas {
 .correct-letter {
   color: black;
   font-size: 40px;
-  font-family: 'Dokdo', cursive;
+  font-family: "Dokdo", cursive;
 }
 
 .myDivs {
