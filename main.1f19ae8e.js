@@ -693,7 +693,7 @@ function Circle(x, y, dx, dy, radius) {
   this.y = y;
   this.dx = dx;
   this.dy = dy;
-  this.radius = Math.floor(Math.random() * 10);
+  this.radius = Math.floor(Math.random() * 10 + 1);
   this.o = Math.random() * 2;
 
   this.draw = function () {
@@ -778,7 +778,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57902" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61493" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
