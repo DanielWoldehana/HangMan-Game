@@ -7,6 +7,16 @@ waterDrop.src = "waterdrop.mp3";
 var randomWords = require("random-words");
 import swal from "sweetalert";
 
+let loosingMsg = [
+  "that was tough",
+  "that was tricky",
+  "you tried your best",
+  "it was so easy",
+  "Game over",
+  "nice try"
+];
+let randomMsg = Math.floor(Math.random() * loosingMsg.length);
+console.log(randomMsg);
 let words = randomWords(800);
 
 let randomLetter = words;
@@ -55,8 +65,8 @@ myButton.addEventListener("click", function(evt) {
 });
 
 let life = document.querySelector(".life-span");
-let lifes = 7;
-life.innerHTML = `❤️: 7`;
+let lifes = 6;
+life.innerHTML = `❤️: 6`;
 
 let wordBank;
 function categorySelect(evt) {
@@ -82,9 +92,9 @@ function categorySelect(evt) {
     wordBank = tenLetter;
   } else if (evt.target.value == "megaLetters") {
     wordBank = megaLetter;
-    lifes = 10;
-    life.innerHTML = `❤️: 10`;
-    let msg = new SpeechSynthesisUtterance("Level Mega Hard,lifes added");
+    lifes = 4;
+    life.innerHTML = `❤️: 4`;
+    let msg = new SpeechSynthesisUtterance("Level Mega Hard, 4 lifes");
     msg.rate = 0.95;
     window.speechSynthesis.speak(msg);
   }
@@ -134,7 +144,7 @@ function findLetter(evt) {
           window.speechSynthesis.speak(msg);
         }
         if (score == randomWord.length) {
-          var msg = new SpeechSynthesisUtterance("YOU WIN ");
+          var msg = new SpeechSynthesisUtterance("YOU WIN");
           swal(
             "YOU WIN!",
             "Choose a Category for the next Challange!",
@@ -145,32 +155,38 @@ function findLetter(evt) {
         if (score == randomWord.length) {
           setTimeout(function() {
             location.reload();
-          }, 4000);
+          }, 5000);
         }
       }
     }
   }
 
   if (!randomWord.includes(`${evt.target.id}`)) {
+    let errorSound = new Audio();
+    errorSound.src = "error.mp3";
+    errorSound.play();
     if (lifes == 2) {
       var msg = new SpeechSynthesisUtterance("1 more chance");
       msg.rate = 0.95;
       window.speechSynthesis.speak(msg);
     }
     if (lifes <= 1) {
-      swal(
-        "Game Over!",
-        `Answer was ${randomWord.toLocaleLowerCase()} ......Better Luck Next time!`,
-        "error"
-      );
+      setTimeout(function() {
+        swal(
+          "Game Over!",
+          `Answer was ${randomWord.toLocaleLowerCase()}......Better Luck Next time!`,
+          "error"
+        );
+      }, 2000);
       var msg = new SpeechSynthesisUtterance(
-        "Game Over the answer was " + randomWord.toLocaleLowerCase()
+        `${loosingMsg[randomMsg]} the answer was ` +
+          randomWord.toLocaleLowerCase()
       );
-      msg.rate = 1.0;
+      msg.rate = 0.9;
       window.speechSynthesis.speak(msg);
       setTimeout(function() {
         location.reload();
-      }, 4000);
+      }, 7000);
     }
 
     console.log("wrong");
