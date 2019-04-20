@@ -475,6 +475,9 @@ waterDrop.src = "waterdrop.mp3";
 
 var randomWords = require("random-words");
 
+var loosingMsg = ["that was tough", "that was tricky", "you tried your best", "it was so easy", "Game over", "nice try"];
+var randomMsg = Math.floor(Math.random() * loosingMsg.length);
+console.log(randomMsg);
 var words = randomWords(800);
 var randomLetter = words;
 var twoLetter = [];
@@ -522,8 +525,8 @@ myButton.addEventListener("click", function (evt) {
   location.reload();
 });
 var life = document.querySelector(".life-span");
-var lifes = 7;
-life.innerHTML = "\u2764\uFE0F: 7";
+var lifes = 6;
+life.innerHTML = "\u2764\uFE0F: 6";
 var wordBank;
 
 function categorySelect(evt) {
@@ -549,9 +552,9 @@ function categorySelect(evt) {
     wordBank = tenLetter;
   } else if (evt.target.value == "megaLetters") {
     wordBank = megaLetter;
-    lifes = 10;
-    life.innerHTML = "\u2764\uFE0F: 10";
-    var msg = new SpeechSynthesisUtterance("Level Mega Hard,lifes added");
+    lifes = 4;
+    life.innerHTML = "\u2764\uFE0F: 4";
+    var msg = new SpeechSynthesisUtterance("Level Mega Hard, 4 lifes");
     msg.rate = 0.95;
     window.speechSynthesis.speak(msg);
   }
@@ -605,7 +608,7 @@ function findLetter(evt) {
         }
 
         if (score == randomWord.length) {
-          var msg = new SpeechSynthesisUtterance("YOU WIN ");
+          var msg = new SpeechSynthesisUtterance("YOU WIN");
           (0, _sweetalert.default)("YOU WIN!", "Choose a Category for the next Challange!", "success");
           window.speechSynthesis.speak(msg);
         }
@@ -613,13 +616,17 @@ function findLetter(evt) {
         if (score == randomWord.length) {
           setTimeout(function () {
             location.reload();
-          }, 4000);
+          }, 5000);
         }
       }
     }
   }
 
   if (!randomWord.includes("".concat(evt.target.id))) {
+    var errorSound = new Audio();
+    errorSound.src = "error.mp3";
+    errorSound.play();
+
     if (lifes == 2) {
       var msg = new SpeechSynthesisUtterance("1 more chance");
       msg.rate = 0.95;
@@ -627,13 +634,15 @@ function findLetter(evt) {
     }
 
     if (lifes <= 1) {
-      (0, _sweetalert.default)("Game Over!", "Answer was ".concat(randomWord.toLocaleLowerCase(), " ......Better Luck Next time!"), "error");
-      var msg = new SpeechSynthesisUtterance("Game Over the answer was " + randomWord.toLocaleLowerCase());
-      msg.rate = 1.0;
+      setTimeout(function () {
+        (0, _sweetalert.default)("Game Over!", "Answer was ".concat(randomWord.toLocaleLowerCase(), "......Better Luck Next time!"), "error");
+      }, 2000);
+      var msg = new SpeechSynthesisUtterance("".concat(loosingMsg[randomMsg], " the answer was ") + randomWord.toLocaleLowerCase());
+      msg.rate = 0.9;
       window.speechSynthesis.speak(msg);
       setTimeout(function () {
         location.reload();
-      }, 4000);
+      }, 7000);
     }
 
     console.log("wrong");
@@ -778,7 +787,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61493" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49359" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
