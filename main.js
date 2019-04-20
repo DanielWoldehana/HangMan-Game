@@ -125,15 +125,15 @@ let myhanger = document.querySelector(".hangman-img");
 
 function findLetter(evt) {
   evt.preventDefault();
-  waterDrop.pause();
-  waterDrop.currentTime = 0;
-  waterDrop.volume = 1;
-  waterDrop.play();
   if (evt.target.className == "letter") {
     evt.target.classList.add("poof");
     console.log(evt.target.id);
     for (let i = 0; i < randomWord.length; i++) {
       if (evt.target.id == document.getElementById(`${i}`).textContent) {
+        waterDrop.pause();
+        waterDrop.currentTime = 0;
+        waterDrop.volume = 1;
+        waterDrop.play();
         document.getElementById(`${i}`).classList.remove("poof");
         score += randomWord.length / randomWord.length;
         let scoreSpan = document.querySelector(".score-span");
@@ -164,6 +164,8 @@ function findLetter(evt) {
   if (!randomWord.includes(`${evt.target.id}`)) {
     let errorSound = new Audio();
     errorSound.src = "error.mp3";
+    errorSound.currentTime = 0;
+    errorSound.volume = 1;
     errorSound.play();
     if (lifes == 2) {
       var msg = new SpeechSynthesisUtterance("1 more chance");

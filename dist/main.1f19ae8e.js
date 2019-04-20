@@ -585,10 +585,6 @@ var myhanger = document.querySelector(".hangman-img");
 
 function findLetter(evt) {
   evt.preventDefault();
-  waterDrop.pause();
-  waterDrop.currentTime = 0;
-  waterDrop.volume = 1;
-  waterDrop.play();
 
   if (evt.target.className == "letter") {
     evt.target.classList.add("poof");
@@ -596,6 +592,10 @@ function findLetter(evt) {
 
     for (var _i3 = 0; _i3 < randomWord.length; _i3++) {
       if (evt.target.id == document.getElementById("".concat(_i3)).textContent) {
+        waterDrop.pause();
+        waterDrop.currentTime = 0;
+        waterDrop.volume = 1;
+        waterDrop.play();
         document.getElementById("".concat(_i3)).classList.remove("poof");
         score += randomWord.length / randomWord.length;
         var scoreSpan = document.querySelector(".score-span");
@@ -625,6 +625,8 @@ function findLetter(evt) {
   if (!randomWord.includes("".concat(evt.target.id))) {
     var errorSound = new Audio();
     errorSound.src = "error.mp3";
+    errorSound.currentTime = 0;
+    errorSound.volume = 1;
     errorSound.play();
 
     if (lifes == 2) {
@@ -787,7 +789,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49359" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50292" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
