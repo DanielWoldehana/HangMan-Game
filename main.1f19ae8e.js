@@ -491,27 +491,27 @@ var nineLetter = [];
 var tenLetter = [];
 var megaLetter = [];
 
-for (var _i = 0; _i < words.length; _i++) {
-  if (words[_i].length == 2) {
-    twoLetter.push(words[_i]);
-  } else if (words[_i].length == 3) {
-    threeLetter.push(words[_i]);
-  } else if (words[_i].length == 4) {
-    fourLetter.push(words[_i]);
-  } else if (words[_i].length == 5) {
-    fiveLetter.push(words[_i]);
-  } else if (words[_i].length == 6) {
-    sixLetter.push(words[_i]);
-  } else if (words[_i].length == 7) {
-    sevenLetter.push(words[_i]);
-  } else if (words[_i].length == 8) {
-    eightLetter.push(words[_i]);
-  } else if (words[_i].length == 9) {
-    nineLetter.push(words[_i]);
-  } else if (words[_i].length == 10) {
-    tenLetter.push(words[_i]);
-  } else if (words[_i].length > 10) {
-    megaLetter.push(words[_i]);
+for (var i = 0; i < words.length; i++) {
+  if (words[i].length == 2) {
+    twoLetter.push(words[i]);
+  } else if (words[i].length == 3) {
+    threeLetter.push(words[i]);
+  } else if (words[i].length == 4) {
+    fourLetter.push(words[i]);
+  } else if (words[i].length == 5) {
+    fiveLetter.push(words[i]);
+  } else if (words[i].length == 6) {
+    sixLetter.push(words[i]);
+  } else if (words[i].length == 7) {
+    sevenLetter.push(words[i]);
+  } else if (words[i].length == 8) {
+    eightLetter.push(words[i]);
+  } else if (words[i].length == 9) {
+    nineLetter.push(words[i]);
+  } else if (words[i].length == 10) {
+    tenLetter.push(words[i]);
+  } else if (words[i].length > 10) {
+    megaLetter.push(words[i]);
   }
 }
 
@@ -563,18 +563,18 @@ function categorySelect(evt) {
   randomWord = wordBank[random].toUpperCase();
   var myP = document.querySelector(".dashes");
 
-  for (var _i2 = 0; _i2 < randomWord.length; _i2++) {
-    console.log(randomWord[_i2]);
+  for (var _i = 0; _i < randomWord.length; _i++) {
+    console.log(randomWord[_i]);
     var myDiv = document.createElement("div");
     myDiv.className = "myDivs";
     var mySpan = document.createElement("span");
-    mySpan.id = "".concat(_i2);
+    mySpan.id = "".concat(_i);
     mySpan.className = "correct-letter";
-    mySpan.setAttribute("data-id", "".concat(_i2));
+    mySpan.setAttribute("data-id", "".concat(_i));
     mySpan.classList.add("poof");
     myP.appendChild(myDiv);
     myDiv.appendChild(mySpan);
-    mySpan.innerHTML = "".concat(randomWord[_i2]);
+    mySpan.innerHTML = "".concat(randomWord[_i]);
   }
 }
 
@@ -585,18 +585,18 @@ var myhanger = document.querySelector(".hangman-img");
 
 function findLetter(evt) {
   evt.preventDefault();
+  waterDrop.pause();
+  waterDrop.currentTime = 0;
+  waterDrop.volume = 1;
+  waterDrop.play();
 
   if (evt.target.className == "letter") {
     evt.target.classList.add("poof");
     console.log(evt.target.id);
 
-    for (var _i3 = 0; _i3 < randomWord.length; _i3++) {
-      if (evt.target.id == document.getElementById("".concat(_i3)).textContent) {
-        waterDrop.pause();
-        waterDrop.currentTime = 0;
-        waterDrop.volume = 1;
-        waterDrop.play();
-        document.getElementById("".concat(_i3)).classList.remove("poof");
+    for (var _i2 = 0; _i2 < randomWord.length; _i2++) {
+      if (evt.target.id == document.getElementById("".concat(_i2)).textContent) {
+        document.getElementById("".concat(_i2)).classList.remove("poof");
         score += randomWord.length / randomWord.length;
         var scoreSpan = document.querySelector(".score-span");
         scoreSpan.innerHTML = "Score: \uD83E\uDD29 ".concat(score);
@@ -625,8 +625,6 @@ function findLetter(evt) {
   if (!randomWord.includes("".concat(evt.target.id))) {
     var errorSound = new Audio();
     errorSound.src = "error.mp3";
-    errorSound.currentTime = 0;
-    errorSound.volume = 1;
     errorSound.play();
 
     if (lifes == 2) {
@@ -698,6 +696,11 @@ window.addEventListener("mousemove", function (evt) {
   mouse.x = evt.x;
   mouse.y = evt.y;
 });
+window.addEventListener('resize', function () {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  init();
+});
 
 function Circle(x, y, dx, dy, radius) {
   this.x = x;
@@ -738,28 +741,33 @@ function Circle(x, y, dx, dy, radius) {
 }
 
 var circlesArray = [];
-var i = 0;
 
-while (i < 1000) {
-  var radius = 30;
-  var x = Math.random() * (innerWidth - radius * 2) + radius;
-  var y = Math.random() * (innerHeight - radius * 2) + radius;
-  var dx = (Math.random() - 0.5) * 1;
-  var dy = (Math.random() - 0.5) * 1;
-  c.strokeStyle = "rgb( 255, 255, 255)";
-  circlesArray.push(new Circle(x, y, dx, dy, radius));
-  i++;
+function init() {
+  circlesArray = [];
+  var i = 0;
+
+  while (i < 1000) {
+    var radius = 30;
+    var x = Math.random() * (innerWidth - radius * 2) + radius;
+    var y = Math.random() * (innerHeight - radius * 2) + radius;
+    var dx = (Math.random() - 0.5) * 1;
+    var dy = (Math.random() - 0.5) * 1;
+    c.strokeStyle = "rgb( 255, 255, 255)";
+    circlesArray.push(new Circle(x, y, dx, dy, radius));
+    i++;
+  }
 }
 
 function animate() {
   requestAnimationFrame(animate);
   c.clearRect(0, 0, innerWidth, innerHeight);
 
-  for (var _i4 = 0; _i4 < circlesArray.length; _i4++) {
-    circlesArray[_i4].update();
+  for (var _i3 = 0; _i3 < circlesArray.length; _i3++) {
+    circlesArray[_i3].update();
   }
 }
 
+init();
 animate();
 },{"random-words":"node_modules/random-words/index.js","sweetalert":"node_modules/sweetalert/dist/sweetalert.min.js"}],"../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -789,7 +797,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49332" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57907" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
