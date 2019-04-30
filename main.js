@@ -15,8 +15,19 @@ let loosingMsg = [
   "Game over",
   "nice try"
 ];
+
+let winningMsg = [
+  "congrats you win",
+  "you did it good job",
+  "that was close good job",
+  "i am so proud of you",
+  "wow you think like a computer",
+  "you are on fire keep it up"
+];
 let randomMsg = Math.floor(Math.random() * loosingMsg.length);
-console.log(randomMsg);
+let randomWmessage = Math.floor(Math.random()* winningMsg.length)
+
+
 let words = randomWords(800);
 
 let randomLetter = words;
@@ -92,9 +103,9 @@ function categorySelect(evt) {
     wordBank = tenLetter;
   } else if (evt.target.value == "megaLetters") {
     wordBank = megaLetter;
-    lifes = 4;
-    life.innerHTML = `❤️: 4`;
-    let msg = new SpeechSynthesisUtterance("Level Mega Hard, 4 lifes");
+    lifes = 5;
+    life.innerHTML = `❤️: 5`;
+    let msg = new SpeechSynthesisUtterance("Level Mega Hard, 5 lifes");
     msg.rate = 0.95;
     window.speechSynthesis.speak(msg);
   }
@@ -144,12 +155,13 @@ function findLetter(evt) {
           window.speechSynthesis.speak(msg);
         }
         if (score == randomWord.length) {
-          var msg = new SpeechSynthesisUtterance("YOU WIN");
+          var msg = new SpeechSynthesisUtterance(`${winningMsg[randomWmessage]}`);
           swal(
             "YOU WIN!",
             "Choose a Category for the next Challange!",
             "success"
           );
+          msg.rate = 0.9;
           window.speechSynthesis.speak(msg);
         }
         if (score == randomWord.length) {

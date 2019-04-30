@@ -476,8 +476,9 @@ waterDrop.src = "waterdrop.mp3";
 var randomWords = require("random-words");
 
 var loosingMsg = ["that was tough", "that was tricky", "you tried your best", "it was so easy", "Game over", "nice try"];
+var winningMsg = ["congrats you win", "you did it good job", "that was close good job", "i am so proud of you", "wow you think like a computer", "you are on fire keep it up"];
 var randomMsg = Math.floor(Math.random() * loosingMsg.length);
-console.log(randomMsg);
+var randomWmessage = Math.floor(Math.random() * winningMsg.length);
 var words = randomWords(800);
 var randomLetter = words;
 var twoLetter = [];
@@ -552,9 +553,9 @@ function categorySelect(evt) {
     wordBank = tenLetter;
   } else if (evt.target.value == "megaLetters") {
     wordBank = megaLetter;
-    lifes = 4;
-    life.innerHTML = "\u2764\uFE0F: 4";
-    var msg = new SpeechSynthesisUtterance("Level Mega Hard, 4 lifes");
+    lifes = 5;
+    life.innerHTML = "\u2764\uFE0F: 5";
+    var msg = new SpeechSynthesisUtterance("Level Mega Hard, 5 lifes");
     msg.rate = 0.95;
     window.speechSynthesis.speak(msg);
   }
@@ -608,8 +609,9 @@ function findLetter(evt) {
         }
 
         if (score == randomWord.length) {
-          var msg = new SpeechSynthesisUtterance("YOU WIN");
+          var msg = new SpeechSynthesisUtterance("".concat(winningMsg[randomWmessage]));
           (0, _sweetalert.default)("YOU WIN!", "Choose a Category for the next Challange!", "success");
+          msg.rate = 0.9;
           window.speechSynthesis.speak(msg);
         }
 
@@ -797,7 +799,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57907" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60078" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
