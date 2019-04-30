@@ -125,15 +125,15 @@ let myhanger = document.querySelector(".hangman-img");
 
 function findLetter(evt) {
   evt.preventDefault();
+  waterDrop.pause();
+  waterDrop.currentTime = 0;
+  waterDrop.volume = 1;
+  waterDrop.play();
   if (evt.target.className == "letter") {
     evt.target.classList.add("poof");
     console.log(evt.target.id);
     for (let i = 0; i < randomWord.length; i++) {
       if (evt.target.id == document.getElementById(`${i}`).textContent) {
-        waterDrop.pause();
-        waterDrop.currentTime = 0;
-        waterDrop.volume = 1;
-        waterDrop.play();
         document.getElementById(`${i}`).classList.remove("poof");
         score += randomWord.length / randomWord.length;
         let scoreSpan = document.querySelector(".score-span");
@@ -164,8 +164,6 @@ function findLetter(evt) {
   if (!randomWord.includes(`${evt.target.id}`)) {
     let errorSound = new Audio();
     errorSound.src = "error.mp3";
-    errorSound.currentTime = 0;
-    errorSound.volume = 1;
     errorSound.play();
     if (lifes == 2) {
       var msg = new SpeechSynthesisUtterance("1 more chance");
@@ -238,6 +236,14 @@ window.addEventListener("mousemove", function(evt) {
   mouse.y = evt.y;
 });
 
+window.addEventListener('resize', function() {
+  canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+init()
+})
+
+
 function Circle(x, y, dx, dy, radius) {
   this.x = x;
   this.y = y;
@@ -262,7 +268,12 @@ function Circle(x, y, dx, dy, radius) {
 
     this.x += this.dx;
     this.y += this.dy;
-    if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
+    if (
+      mouse.x - this.x < 50 &&
+      mouse.x - this.x > -50 &&
+      mouse.y - this.y < 50 &&
+      mouse.y - this.y > -50
+    ) {
       if (this.radius < maxRadius) {
         this.radius += 1;
       }
@@ -274,6 +285,9 @@ function Circle(x, y, dx, dy, radius) {
 }
 
 let circlesArray = [];
+
+function init() {
+  circlesArray = []
 let i = 0;
 while (i < 1000) {
   let radius = 30;
@@ -285,6 +299,8 @@ while (i < 1000) {
   circlesArray.push(new Circle(x, y, dx, dy, radius));
   i++;
 }
+}
+
 
 function animate() {
   requestAnimationFrame(animate);
@@ -294,5 +310,5 @@ function animate() {
     circlesArray[i].update();
   }
 }
-
+init()
 animate();
