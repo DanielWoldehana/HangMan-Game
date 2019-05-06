@@ -730,7 +730,7 @@ function Circle(x, y, dx, dy, radius) {
     this.x += this.dx;
     this.y += this.dy;
 
-    if (mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
+    if (innerWidth > 600 && mouse.x - this.x < 50 && mouse.x - this.x > -50 && mouse.y - this.y < 50 && mouse.y - this.y > -50) {
       if (this.radius < maxRadius) {
         this.radius += 1;
       }
@@ -799,7 +799,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60078" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50921" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
