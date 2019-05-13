@@ -1,10 +1,10 @@
-var backgroundSound = new Audio();
+let backgroundSound = new Audio();
 backgroundSound.src = "bubbles.mp3";
 
-var waterDrop = new Audio();
+let waterDrop = new Audio();
 waterDrop.src = "waterdrop.mp3";
 
-var randomWords = require("random-words");
+let randomWords = require("random-words");
 import swal from "sweetalert";
 
 let loosingMsg = [
@@ -25,8 +25,7 @@ let winningMsg = [
   "you are on fire keep it up"
 ];
 let randomMsg = Math.floor(Math.random() * loosingMsg.length);
-let randomWmessage = Math.floor(Math.random()* winningMsg.length)
-
+let randomWmessage = Math.floor(Math.random() * winningMsg.length);
 
 let words = randomWords(800);
 
@@ -150,12 +149,14 @@ function findLetter(evt) {
         let scoreSpan = document.querySelector(".score-span");
         scoreSpan.innerHTML = `Score: 🤩 ${score}`;
         if (randomWord.length - score == 3) {
-          var msg = new SpeechSynthesisUtterance("You are so close");
+          let msg = new SpeechSynthesisUtterance("You are so close");
           msg.rate = 0.95;
           window.speechSynthesis.speak(msg);
         }
         if (score == randomWord.length) {
-          var msg = new SpeechSynthesisUtterance(`${winningMsg[randomWmessage]}`);
+          let msg = new SpeechSynthesisUtterance(
+            `${winningMsg[randomWmessage]}`
+          );
           swal(
             "YOU WIN!",
             "Choose a Category for the next Challange!",
@@ -178,7 +179,7 @@ function findLetter(evt) {
     errorSound.src = "error.mp3";
     errorSound.play();
     if (lifes == 2) {
-      var msg = new SpeechSynthesisUtterance("1 more chance");
+      let msg = new SpeechSynthesisUtterance("1 more chance");
       msg.rate = 0.95;
       window.speechSynthesis.speak(msg);
     }
@@ -190,7 +191,7 @@ function findLetter(evt) {
           "error"
         );
       }, 2000);
-      var msg = new SpeechSynthesisUtterance(
+      let msg = new SpeechSynthesisUtterance(
         `${loosingMsg[randomMsg]} the answer was ` +
           randomWord.toLocaleLowerCase()
       );
@@ -248,13 +249,12 @@ window.addEventListener("mousemove", function(evt) {
   mouse.y = evt.y;
 });
 
-window.addEventListener('resize', function() {
+window.addEventListener("resize", function() {
   canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+  canvas.height = window.innerHeight;
 
-init()
-})
-
+  init();
+});
 
 function Circle(x, y, dx, dy, radius) {
   this.x = x;
@@ -300,20 +300,19 @@ function Circle(x, y, dx, dy, radius) {
 let circlesArray = [];
 
 function init() {
-  circlesArray = []
-let i = 0;
-while (i < 1000) {
-  let radius = 30;
-  let x = Math.random() * (innerWidth - radius * 2) + radius;
-  let y = Math.random() * (innerHeight - radius * 2) + radius;
-  let dx = (Math.random() - 0.5) * 1;
-  let dy = (Math.random() - 0.5) * 1;
-  c.strokeStyle = `rgb( 255, 255, 255)`;
-  circlesArray.push(new Circle(x, y, dx, dy, radius));
-  i++;
+  circlesArray = [];
+  let i = 0;
+  while (i < 1000) {
+    let radius = 30;
+    let x = Math.random() * (innerWidth - radius * 2) + radius;
+    let y = Math.random() * (innerHeight - radius * 2) + radius;
+    let dx = (Math.random() - 0.5) * 1;
+    let dy = (Math.random() - 0.5) * 1;
+    c.strokeStyle = `rgb( 255, 255, 255)`;
+    circlesArray.push(new Circle(x, y, dx, dy, radius));
+    i++;
+  }
 }
-}
-
 
 function animate() {
   requestAnimationFrame(animate);
@@ -323,5 +322,5 @@ function animate() {
     circlesArray[i].update();
   }
 }
-init()
+init();
 animate();
