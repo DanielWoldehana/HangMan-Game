@@ -1,6 +1,3 @@
-let backgroundSound = new Audio();
-backgroundSound.src = "bubbles.mp3";
-
 let waterDrop = new Audio();
 waterDrop.src = "waterdrop.mp3";
 
@@ -237,6 +234,9 @@ let mouse = {
 };
 let maxRadius = 40;
 let minimumRadius = 10;
+
+let backgroundSound = new Audio();
+backgroundSound.src = "bubbles.mp3";
 
 let canvas = document.querySelector("canvas");
 canvas.width = window.innerWidth;
