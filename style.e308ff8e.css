@@ -200,5 +200,88 @@ canvas {
   padding: 0 10px;
 }
 
+@media only screen and (max-width: 600px) {
+  .getHooked {
+    font-size: 40px;
+  }
+  .hooked {
+    width: 40px;
+    height: 40px;
+  }
+  .score-span {
+    padding: 1px;
+  }
+  .pickCat {
+    font-size: 20px;
+  }
+  #category-select {
+    width: 75px;
+  }
+  .myButton {
+    font-size: 15px;
+    margin-left: 5px;
+  }
+  .life-span {
+    padding: 2px;
+  }
+  .letter {
+    font-size: 20px;
+    padding: 0 10px;
+  }
+  .hanger {
+    width: 150px;
+    height: 150px;
+  }
+  .myDivs {
+    width: 15px;
+    height: 30px;
+  }
+  .correct-letter {
+    font-size: 30px;
+  }
+  .kaguya {
+    width: 150px;
+    height: 150px;
+  }
+  @-webkit-keyframes animate5 {
+    0% {
+      left: 0px;
+      right: 0px;
+    }
+    100% {
+      left: 30px;
+      right: 0;
+    }
+  }
+  .kaguya5 {
+    position: absolute;
+    width: 350px;
+    height: 150px;
+    left: 2%;
+    top: 15%;
+    -webkit-animation-name: animate5;
+    -webkit-animation-duration: 4s;
+  }
+  @-webkit-keyframes animate6 {
+    0% {
+      left: 450px;
+      right: 0px;
+    }
+    100% {
+      left: 100px;
+      right: 0px;
+    }
+  }
+  .kaguya6 {
+    position: absolute;
+    width: 350px;
+    height: 150px;
+    right: 2%;
+    top: 15%;
+    -webkit-animation-name: animate6;
+    -webkit-animation-duration: 2s;
+  }
+}
+
 
 /*# sourceMappingURL=/style.e308ff8e.css.map */
